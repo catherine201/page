@@ -137,6 +137,7 @@ class Device extends React.Component {
     const res = await createApi.publish(obj);
     if (res) {
       console.log(this.publish);
+      this.props.form.resetFields();
       this.$msg.success('新增成功');
     }
   };
@@ -145,6 +146,7 @@ class Device extends React.Component {
     const res = await createApi.reviseVersionById(obj);
     if (res) {
       this.$msg.success('修改成功');
+      this.props.history.push('/admin');
     }
   };
 
@@ -195,9 +197,9 @@ class Device extends React.Component {
         };
         // console.log(handleData(deviceData));
         // console.log(handleData(versionData));
-        console.log(
-          new Date(values.updateTime[0].format('YYYY-MM-DD')).getTime()
-        );
+        // console.log(
+        //   new Date(values.updateTime[0].format('YYYY-MM-DD')).getTime()
+        // );
         const filterVersion =
           values.opcode && escapeEmpty(handleData(versionData));
         console.log(filterVersion);
@@ -219,12 +221,12 @@ class Device extends React.Component {
           filter_device: values.vendor && escapeEmpty(handleData(deviceData)),
           filter_version: filterVersion,
           filter_account: values.filter_account,
-          begin_time: new Date(
-            values.updateTime[0].format('YYYY-MM-DD')
-          ).getTime(),
-          end_time: new Date(
-            values.updateTime[0].format('YYYY-MM-DD')
-          ).getTime()
+          begin_time:
+            values.updateTime[0] &&
+            new Date(values.updateTime[0].format('YYYY-MM-DD')).getTime(),
+          end_time:
+            values.updateTime[0] &&
+            new Date(values.updateTime[0].format('YYYY-MM-DD')).getTime()
         };
         if (!this.state.isRevise) {
           this.publish(handleObj(obj));
