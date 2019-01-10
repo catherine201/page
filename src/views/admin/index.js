@@ -290,6 +290,10 @@ class Device extends React.Component {
       },
       error: () => {
         this.$msg.error('upload failed.');
+        this.setState({
+          disabled: false,
+          showApp: false
+        });
       }
     });
   };
@@ -299,6 +303,7 @@ class Device extends React.Component {
     //   showApp: true
     // });
     const res = await createApi.uploadFile(obj);
+    console.log(res);
     if (res && res.error_code === 1) {
       this.setState(
         {
@@ -309,6 +314,11 @@ class Device extends React.Component {
           this.handleUpload(file);
         }
       );
+    } else {
+      this.setState({
+        disabled: false,
+        showApp: false
+      });
     }
   };
 
@@ -323,7 +333,8 @@ class Device extends React.Component {
     const obj = {
       openid: JSON.parse(sessionStorage.getItem('user')).openid,
       access_token: JSON.parse(sessionStorage.getItem('user')).access_token,
-      name: `${parseInt(100 * Math.random())}${file.name}`,
+      // name: `${parseInt(100 * Math.random())}${file.name}`,
+      name: file.name,
       method_name: 'put'
     };
     this.uploadFile(obj, file);
