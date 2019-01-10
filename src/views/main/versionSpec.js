@@ -1,6 +1,5 @@
 import React from 'react';
 import { Form, Input, DatePicker, Select } from 'antd';
-// import reqwest from 'reqwest';
 import moment from 'moment';
 import styles from './index.less';
 import { numToArr, timestampToTime } from '../../utils';
@@ -8,24 +7,6 @@ import createApi from '../../api/version';
 
 const { RangePicker } = DatePicker;
 const { Option } = Select;
-// let id = 0; // 一开始的个数
-// let deviceId = 0;
-// let versionId = 0;
-// const areaId = 0;
-// const nextKeysObj = {
-//   keysFilter(keys) {
-//     return keys.concat(++id);
-//   },
-//   deviceFilter(keys) {
-//     return keys.concat(++deviceId);
-//   },
-//   versionFilter(keys) {
-//     return keys.concat(++versionId);
-//   },
-//   areaFilter(keys) {
-//     return keys.concat(++areaId);
-//   }
-// };
 
 const idObj = {
   keysFilter: 'filter_os_version',
@@ -55,12 +36,10 @@ class VersionSpec extends React.Component {
     if (this.props.id) {
       this.queryPublish(obj);
     }
-    // console.log(form.getFieldValue('filter_os_version'));
-    // this.props.form.getFieldsValue('filter_os_version');
   }
 
   queryPublish = async obj => {
-    const { form } = this.props;
+    // const { form } = this.props;
     const res = await createApi.getVersionById(obj);
     if (res) {
       console.log(res);
@@ -83,28 +62,8 @@ class VersionSpec extends React.Component {
         },
         () => {
           const { initData } = this.state;
-          //   id = initData.filter_os_version.length;
-          //   deviceId = initData.filter_device.length;
-          //   versionId = initData.filter_version.length;
           this.setState({
             showApp: Boolean(initData.download_url)
-          });
-          // areaId = initData
-          form.setFieldsValue({
-            name: initData.name,
-            upload: [
-              {
-                uid: '22'
-              }
-            ],
-            type: initData.type,
-            description: initData.description,
-            version: initData.version,
-            filter_os_name: initData.filter_os_name,
-            filter_os_version: initData.filter_os_version,
-            filter_account: initData.filter_account,
-            filter_device: initData.filter_device,
-            filter_version: initData.filter_version
           });
         }
       );
@@ -176,48 +135,9 @@ class VersionSpec extends React.Component {
             key={k}
             className={`${index ? styles.width50 : styles.width80}`}
           >
-            {/* {keyName === 'keysFilter' &&
-              getFieldDecorator(`osVersion[${k}]`, {
-                initialValue:
-                  initData.filter_os_version && initData.filter_os_version[k],
-                validateTrigger: ['onChange', 'onBlur'],
-                rules: [
-                  {
-                    whitespace: true
-                  },
-                  { min: 1, max: 16, message: '最少1位，最多16位!' }
-                ]
-              })(
-                <Input
-                  placeholder={label}
-                  style={{ width: '50%', marginRight: 8 }}
-                  disabled
-                />
-              )} */}
             {keyName === 'keysFilter' && (
               <span>{initData.filter_os_version[k]}</span>
             )}
-            {/* {keyName === 'deviceFilter' &&
-              getFieldDecorator(`vendor[${k}]`, {
-                initialValue:
-                  initData.filter_device &&
-                  initData.filter_device[k] &&
-                  initData.filter_device[k].vendor,
-                validateTrigger: ['onChange', 'onBlur'],
-                rules: [
-                  {
-                    required: true,
-                    whitespace: true,
-                    message: "Please input vendor's name or delete this field."
-                  },
-                  { min: 2, max: 16, message: '最少2位，最多16位!' }
-                ]
-              })(
-                <Input
-                  placeholder="指定设备"
-                  style={{ width: '40%', marginRight: 8 }}
-                />
-              )} */}
             {keyName === 'deviceFilter' && (
               <span
                 style={{
@@ -229,28 +149,6 @@ class VersionSpec extends React.Component {
                 {`指定设备: ${initData.filter_device[k].vendor}`}
               </span>
             )}
-            {/* {keyName === 'deviceFilter' &&
-              getFieldDecorator(`model[${k}]`, {
-                initialValue:
-                  initData.filter_device &&
-                  initData.filter_device[k] &&
-                  initData.filter_device[k].model,
-                validateTrigger: ['onChange', 'onBlur'],
-                rules: [
-                  {
-                    // required: true,
-                    whitespace: true
-                    // message:
-                    //   "Please input passenger's name or delete this field."
-                  },
-                  { min: 1, max: 16, message: '最少1位，最多16位!' }
-                ]
-              })(
-                <Input
-                  placeholder="指定设备型号"
-                  style={{ width: '40%', marginRight: 8 }}
-                />
-              )} */}
             {keyName === 'deviceFilter' && (
               <span style={{ width: '30%', marginRight: 8 }}>
                 {`指定设备型号: ${initData.filter_device[k].model || '无'}`}
@@ -262,16 +160,9 @@ class VersionSpec extends React.Component {
                   initData.filter_version &&
                   initData.filter_version[k] &&
                   initData.filter_version[k].opcode,
-                validateTrigger: ['onChange', 'onBlur'],
-                rules: [
-                  { required: true, message: 'Please select your opcode!' }
-                ]
+                validateTrigger: ['onChange', 'onBlur']
               })(
-                <Select
-                  disabled
-                  placeholder="Please select a opcode"
-                  style={{ width: '20%', marginRight: 8 }}
-                >
+                <Select disabled style={{ width: '20%', marginRight: 8 }}>
                   <Option value=">"> &gt; </Option>
                   <Option value="="> = </Option>
                   <Option value="<"> &lt; </Option>
@@ -284,14 +175,7 @@ class VersionSpec extends React.Component {
                   initData.filter_version &&
                   initData.filter_version[k] &&
                   initData.filter_version[k].num,
-                validateTrigger: ['onChange', 'onBlur'],
-                rules: [
-                  {
-                    required: true,
-                    // whitespace: true,
-                    message: '请输入版本号'
-                  }
-                ]
+                validateTrigger: ['onChange', 'onBlur']
               })(
                 <Input
                   disabled
@@ -306,10 +190,7 @@ class VersionSpec extends React.Component {
                   initData.filter_version &&
                   initData.filter_version[k] &&
                   initData.filter_version[k].force,
-                validateTrigger: ['onChange', 'onBlur'],
-                rules: [
-                  { required: true, message: 'Please select your opcode!' }
-                ]
+                validateTrigger: ['onChange', 'onBlur']
               })(
                 <Select
                   disabled
@@ -340,14 +221,6 @@ class VersionSpec extends React.Component {
               className={`versionForm ${styles.versionForm}`}
             >
               <Form.Item {...formItemLayout} label="当前版本名称">
-                {/* {getFieldDecorator('name', {
-                  rules: [
-                    {
-                      required: true,
-                      message: '请输入当前版本名称!'
-                    }
-                  ]
-                })(<Input />)} */}
                 <span>{initData.name}</span>
               </Form.Item>
               <Form.Item {...formItemLayout} label="版本类型">
@@ -412,8 +285,6 @@ class VersionSpec extends React.Component {
               <Form.Item {...formItemLayout} label="指定用户ID升级">
                 <span>{initData.filter_account || '无'}</span>
               </Form.Item>
-              {/* {deviceFormItems} */}
-              {/* {formItems('device', deviceKeys, '过滤设备', 'name')} */}
             </Form>
           </div>
         </div>

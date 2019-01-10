@@ -72,10 +72,7 @@ class Main extends React.Component {
   queryPublish = async obj => {
     const res = await createApi.getVersion(obj);
     if (res) {
-      // console.log(res);
       const pagination = { ...this.state.pagination };
-      // pagination.total = res.paging.total;
-      // console.log(res.paging.total);
       pagination.total = res.paging.total;
       this.setState({
         pagination,
