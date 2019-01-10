@@ -328,7 +328,7 @@ class Device extends React.Component {
       openid: JSON.parse(sessionStorage.getItem('user')).openid,
       access_token: JSON.parse(sessionStorage.getItem('user')).access_token,
       // name: `${parseInt(100 * Math.random())}${file.name}`,
-      name: file.name,
+      name: `version_management_${file.name}`,
       method_name: 'put'
     };
     this.uploadFile(obj, file);
