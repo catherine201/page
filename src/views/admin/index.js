@@ -136,8 +136,8 @@ class Device extends React.Component {
     const res = await createApi.publish(obj);
     if (res) {
       console.log(this.publish);
-      this.props.form.resetFields();
       this.$msg.success('新增成功');
+      this.props.history.push('/admin/publish');
     }
   };
 
