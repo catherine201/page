@@ -1,0 +1,99 @@
+
+/* @import "./iconfont.css"; */
+@import "./animate.css";
+
+/* reset */
+body,html,ol,ul,li,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,dt,form,fieldset,legend,input,textarea,select,img{margin:0;padding:0;}
+body,html{font:0.12rem "微软雅黑";color:#333;}
+h1,h2,h3,h4,h5,h6,b,strong{
+	font-weight:100;}
+i,em{font-style:normal;}
+li{list-style:none;}
+a{text-decoration:none;color:#333;}
+img{border:0;}
+input{outline:none;}
+.clearfix:after{
+	content:".";display:block;height:0;overflow:hidden;visibility:hidden;clear:both;}
+.c-666464{
+	color: #666464;
+}
+.underline:hover{
+	text-decoration: underline;
+}
+body{
+  margin: 0;
+  padding: 0;
+  color: #464c5b;
+  font-size: 14px;
+  line-height: 1.4;
+  font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+  background: #ECF0F5;
+  box-sizing: border-box;
+}
+html body .christmas.ant-btn-primary:before{
+  display: none;
+}
+/* 头部进步条的样式 */
+#nprogress .bar {
+  background: #812CB2 ;
+}
+
+#nprogress .spinner-icon {
+  border-top-color: #812CB2 ;
+  border-left-color: #812CB2 ;
+}
+/* 全局样式 */
+/* flex */
+  .flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .f-left{
+    float: left;
+  }
+  .f-right{
+    float: right;
+  }
+  .text-center{
+    text-align: center;
+  }
+  .text-right{
+    text-align: right;
+  }
+  .blur-0{
+    filter: blur(0px);
+  }
+  .blur-2{
+    filter: blur(2px);
+  }
+  .m-box{
+    background: #fff;
+    border-radius: 3px;
+    padding: 15px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+  .m-box:last-child{
+    margin-bottom: 0px;
+  }
+  .middle-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(236,240,245);
+  }
+  .btn-block{
+    display: block;
+    width: 100%;
+  }
+  
+  .btn-block.btn-lg{
+    min-width: 200px;
+    height: 42px;
+    line-height: 42px;
+  }

@@ -1,0 +1,133 @@
+:global{
+    .menu_wrap{
+        position: relative;
+      // min-height: calc(~"100% - 50px");
+      min-height: calc(100vh - 50px);
+      height: auto;
+      _height: calc(100vh - 50px);
+      .ant-menu-inline{
+        // min-height: calc(~"100% - 50px");
+      }
+    }
+      #root .app-layout{
+          // min-height: calc(100vh);
+          min-height: calc(100vh);
+          height: auto;
+          _height: calc(100vh);
+        }
+        .app-layout .ant-layout-sider-dark{
+          background: #1F2729;
+        }
+        .app-layout .ant-menu-dark, 
+        .app-layout .ant-menu-dark .ant-menu-sub{
+          background: #1F2729;
+        }
+        .app-layout .ant-menu-horizontal{
+          border: none;
+        }
+        .app-layout .ant-layout-header{
+          padding: 0;
+          height: 50px;
+          line-height: 50px;
+        }
+        .app-layout .ant-layout-header .ant-menu{
+          line-height: 50px;
+          background: #29ABE2;
+        }
+        .app-layout .ant-layout-header .ant-menu-item, 
+        .app-layout .ant-layout-header .ant-menu-submenu-title{
+          padding: 0 15px;
+        }
+        .app-layout .ant-layout-header .ant-menu.ant-menu-dark .ant-menu-item-selected,
+        .app-layout .ant-layout-header .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected{
+          background: rgba(12, 12, 12, 0.18);
+        }
+        .app-layout .ant-layout-header .trigger {
+          font-size: 18px;
+          padding: 0 24px;
+          cursor: pointer;
+          transition: color 0.3s;
+          color: #E8E8ED;
+        }
+        .ant-menu-dark .ant-menu-item,
+        .ant-menu-dark .ant-menu-item-group-title,
+        .ant-menu-dark .ant-menu-item > a{
+          color: rgba(255, 255, 255, 0.75);
+        }
+        
+        .app-layout .ant-layout-header .trigger:hover {
+          color: #fff;
+        }
+        
+        .app-layout .ant-layout-sider .logo-box {
+          box-sizing: border-box;
+          height: 50px;
+          line-height: 50px;
+          padding: 0 15px;
+          color: #e6e5e5;
+          overflow: hidden;
+          transition: padding 0.2s ease;
+        }
+        .app-layout .ant-layout-sider.ant-layout-sider-collapsed .logo-box{
+          padding: 0 23px;
+        }
+        .app-layout .ant-layout-sider.ant-layout-sider-collapsed .logo-box .title{
+          display: none;
+        }     
+    .app-layout .ant-layout-content{
+      /* padding: 0px;
+      margin: 0 16px; */
+      display: flex;
+      position: relative;
+      // background: #fff;
+    }
+    
+    .app-layout .ant-layout-footer{
+      border-top: 1px solid rgba(48,54,62,.14);
+      background: #fff;
+      height: 50px;
+      line-height: 50px;
+      overflow: hidden;
+      padding: 0 16px;
+      color: #94989e;
+    }
+    
+    .head-nav-list{
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    .head-nav-list li{
+      display: inline-block;
+      padding: 0 5px;
+      color: rgba(255, 255, 255, 0.75);
+    }
+    .head-nav-list li > a{
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+      display: inline-block;
+      height: 100%;
+    }
+    .head-nav-list li > a:hover{
+      color: #fff;
+    }
+    .head-nav-list li .anticon {
+      margin-right: 5px;
+      font-size: 1rem;
+    }
+    .head-nav-list li .user-avator{
+      width: 28px;
+      height: 28px;
+      margin-right: 5px;
+      border-radius: 3px;
+    }
+    .logo-box .logo{
+      height: 32px;
+      width: 32px;
+      margin-right: 10px;
+    }
+    .logo-box .title{
+      font-size: 1.2rem;
+      font-weight: 100;
+    } 
+  }

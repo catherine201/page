@@ -1,0 +1,10 @@
+{
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx"
+  },
+  "eslint.options": {
+    // "configFile":".eslintrc.json的本地路径"
+  },
+  "eslint.autoFixOnSave": true,
+  "files.eol": "\n",
+}

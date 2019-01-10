@@ -1,0 +1,67 @@
+.versionWrapper{
+    margin-top: 20px;
+    width: 100%;
+    .h2{
+        margin-bottom: 0;
+        padding-left: 25px;
+        height: 60px;
+        line-height: 60px;
+    }
+    .versionFormWrap{
+        padding-top: 20px;
+        width: 80%;
+        margin: 0 auto;
+        border: 1px solid #ddd;
+        .versionForm{
+            width: 80%;
+            margin: 0 auto;
+            .li{
+                // background-color: #fff;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 200px 0 20px;
+            }
+            // .width50{
+            //     display: inline-block;
+            //     width: 45%;
+            // }
+            // .width80{
+            //     // display: inline-block;
+            //     // width: 45%;
+            // }
+        }
+    }
+}
+:global{
+  .versionWrapper{
+    .ant-form-item-control{
+        line-height: 22px;
+    }
+      .btn_confirm{
+          width: 30%;
+        //   margin:  0 auto;
+      }
+    .anticon{
+        cursor: pointer;
+    }
+    .ant-divider-horizontal{
+        margin-top: 0;
+    }
+    .dynamic-delete-button {
+        cursor: pointer;
+        position: relative;
+        top: 4px;
+        font-size: 24px;
+        color: #999;
+        transition: all .3s;
+      }
+      .dynamic-delete-button:hover {
+        color: #777;
+      }
+      .dynamic-delete-button[disabled] {
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
+  }
+}
