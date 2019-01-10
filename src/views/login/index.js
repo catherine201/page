@@ -31,7 +31,10 @@ class Login extends React.Component {
     if (res && res.error_code === 1) {
       const authObj = {
         access_token: res.data.access_token,
-        appid: '703fc6949ad96cd3fe08f5ac16e3adc3'
+        appid: window.location.host.includes('localhost')
+          ? 'd862b911825b21d72275420ae4456b80'
+          : '703fc6949ad96cd3fe08f5ac16e3adc3'
+        // appid: 'd862b911825b21d72275420ae4456b80'
       };
       const authResult = await createApi.authLogin(authObj);
       if (authResult) {

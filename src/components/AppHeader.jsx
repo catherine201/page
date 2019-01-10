@@ -149,11 +149,11 @@ class AppHeader extends React.Component {
     return (
       <Header>
         <div className="f-left">
-          <Icon
+          {/* <Icon
             className="trigger"
             type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'}
             onClick={this.props.onClick}
-          />
+          /> */}
         </div>
         <div className="f-right">
           <ul className="head-nav-list">
