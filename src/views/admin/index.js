@@ -8,7 +8,8 @@ import {
   Select,
   DatePicker,
   Row,
-  Col
+  Col,
+  Divider
 } from 'antd';
 // import reqwest from 'reqwest';
 import moment from 'moment';
@@ -77,8 +78,6 @@ class Device extends React.Component {
       };
       this.queryPublish(obj);
     }
-    // console.log(form.getFieldValue('filter_os_version'));
-    // this.props.form.getFieldsValue('filter_os_version');
   }
 
   queryPublish = async obj => {
@@ -195,11 +194,6 @@ class Device extends React.Component {
           num: values.num,
           force: values.force || false
         };
-        // console.log(handleData(deviceData));
-        // console.log(handleData(versionData));
-        // console.log(
-        //   new Date(values.updateTime[0].format('YYYY-MM-DD')).getTime()
-        // );
         const filterVersion =
           values.opcode && escapeEmpty(handleData(versionData));
         console.log(filterVersion);
@@ -373,120 +367,6 @@ class Device extends React.Component {
         sm: { span: 19, offset: 5 }
       }
     };
-    // getFieldDecorator('keys', { initialValue: [0] });
-    // const keys = getFieldValue('keys');
-    // const formItems = keys.map((k, index) => (
-    //   <Form.Item
-    //     {...(index === 0
-    //       ? smallFormItemLayout
-    //       : smallFormItemLayoutWithOutLabel)}
-    //     label={index === 0 ? '升级平台系统版本' : ''}
-    //     required={false}
-    //     key={k}
-    //     className={`${index ? styles.width50 : styles.width80}`}
-    //   >
-    //     {getFieldDecorator(`names [${k}]`, {
-    //       validateTrigger: ['onChange', 'onBlur'],
-    //       rules: [
-    //         {
-    //           required: true,
-    //           whitespace: true,
-    //           message: "Please input passenger's name or delete this field."
-    //         }
-    //       ]
-    //     })(
-    //       <Input
-    //         placeholder="升级平台系统版本"
-    //         style={{ width: '50%', marginRight: 8 }}
-    //       />
-    //     )}
-    //     {keys.length > 1 ? (
-    //       <Icon
-    //         className="dynamic-delete-button"
-    //         type="minus-circle-o"
-    //         disabled={keys.length === 1}
-    //         onClick={() => this.remove(k)}
-    //       />
-    //     ) : null}
-    //     {index === keys.length - 1 && (
-    //       <Button
-    //         type="dashed"
-    //         onClick={() => this.add()}
-    //         style={{ width: '60%' }}
-    //       >
-    //         <Icon type="plus" /> 添加
-    //       </Button>
-    //     )}
-    //   </Form.Item>
-    // ));
-    // getFieldDecorator('device', { initialValue: [0] });
-    // const deviceKeys = getFieldValue('device');
-    // // console.log(deviceKeys);
-    // const deviceFormItems = deviceKeys.map((k, index) => (
-    //   <Form.Item
-    //     {...(index === 0
-    //       ? smallFormItemLayout
-    //       : smallFormItemLayoutWithOutLabel)}
-    //     label={index === 0 ? '设备' : ''}
-    //     required={false}
-    //     key={k}
-    //     className={`${index ? styles.width50 : styles.width80}`}
-    //   >
-    //     {getFieldDecorator(`device [${k}]`, {
-    //       validateTrigger: ['onChange', 'onBlur'],
-    //       rules: [
-    //         {
-    //           required: true,
-    //           whitespace: true,
-    //           message: "Please input passenger's name or delete this field."
-    //         }
-    //       ]
-    //     })(
-    //       <Input
-    //         placeholder="升级设备"
-    //         style={{ width: '50%', marginRight: 8 }}
-    //       />
-    //     )}
-    //     {getFieldDecorator(`deviceV [${k}]`, {
-    //       validateTrigger: ['onChange', 'onBlur'],
-    //       rules: [
-    //         // {
-    //         //   required: true,
-    //         //   whitespace: true,
-    //         //   message: "Please input passenger's name or delete this field."
-    //         // }
-    //       ]
-    //     })(
-    //       <Input
-    //         placeholder="升级设备版本"
-    //         style={{ width: '50%', marginRight: 8 }}
-    //       />
-    //     )}
-    //     {deviceKeys.length > 1 ? (
-    //       <Icon
-    //         className="dynamic-delete-button"
-    //         type="minus-circle-o"
-    //         disabled={keys.length === 1}
-    //         onClick={() => this.removeDevice(k)}
-    //       />
-    //     ) : null}
-    //     {index === deviceKeys.length - 1 && (
-    //       <Button
-    //         type="dashed"
-    //         onClick={() => this.addDevice()}
-    //         style={{ width: '60%' }}
-    //       >
-    //         <Icon type="plus" /> 添加
-    //       </Button>
-    //     )}
-    //   </Form.Item>
-    // ));
-    // getFieldDecorator('keys', { initialValue: [0] });
-    // const keys = getFieldValue('keys');
-    // getFieldDecorator('device', { initialValue: [0] });
-    // const deviceKeys = getFieldValue('device');
-    // // console.log(keys);
-    // getFieldDecorator('device', { initialValue: [0] });
     const { initData } = this.state;
     console.log(initData.begin_time);
     const rangeConfig = {
@@ -534,7 +414,7 @@ class Device extends React.Component {
               ]
             })(
               <Input
-                placeholder={label}
+                placeholder={`请输入${label}`}
                 style={{ width: '50%', marginRight: 8 }}
               />
             )}
@@ -549,13 +429,13 @@ class Device extends React.Component {
                 {
                   required: true,
                   whitespace: true,
-                  message: "Please input vendor's name or delete this field."
+                  message: '请输入指定设备或者删除此栏'
                 },
                 { min: 2, max: 16, message: '最少2位，最多16位!' }
               ]
             })(
               <Input
-                placeholder="指定设备"
+                placeholder="请输入指定设备"
                 style={{ width: '40%', marginRight: 8 }}
               />
             )}
@@ -577,7 +457,7 @@ class Device extends React.Component {
               ]
             })(
               <Input
-                placeholder="指定设备型号"
+                placeholder="请输入指定设备型号"
                 style={{ width: '40%', marginRight: 8 }}
               />
             )}
@@ -588,10 +468,10 @@ class Device extends React.Component {
                 initData.filter_version[k] &&
                 initData.filter_version[k].opcode,
               validateTrigger: ['onChange', 'onBlur'],
-              rules: [{ required: true, message: 'Please select your opcode!' }]
+              rules: [{ required: true, message: '请选择运算符!' }]
             })(
               <Select
-                placeholder="Please select a opcode"
+                placeholder="运算符"
                 style={{ width: '20%', marginRight: 8 }}
               >
                 <Option value=">"> &gt; </Option>
@@ -628,10 +508,10 @@ class Device extends React.Component {
                 initData.filter_version[k] &&
                 initData.filter_version[k].force,
               validateTrigger: ['onChange', 'onBlur'],
-              rules: [{ required: true, message: 'Please select your opcode!' }]
+              rules: [{ required: true, message: '请选择是否强制升级!' }]
             })(
               <Select
-                placeholder="Please select a opcode"
+                placeholder="强制升级?"
                 style={{ width: '20%', marginRight: 8 }}
               >
                 <Option value> 强制升级 </Option>
@@ -664,6 +544,10 @@ class Device extends React.Component {
     if ((isRevise && initData.name) || !isRevise) {
       return (
         <div className={`versionWrapper ${styles.versionWrapper}`}>
+          <h2 className={`add_h2 ${styles.h2}`}>
+            {isRevise ? '修改版本' : '发布新版本'}
+          </h2>
+          <Divider />
           <div className={`versionFormWrap ${styles.versionFormWrap}`}>
             <Form
               onSubmit={this.handleSubmit}
@@ -677,7 +561,7 @@ class Device extends React.Component {
                       message: '请输入当前版本名称!'
                     }
                   ]
-                })(<Input />)}
+                })(<Input placeholder="请输入当前版本名称" />)}
               </Form.Item>
               <Form.Item {...formItemLayout} label="版本类型">
                 {getFieldDecorator('type', {
@@ -689,7 +573,7 @@ class Device extends React.Component {
                   ]
                 })(
                   <Select
-                    placeholder="Please select a version"
+                    placeholder="请选择支持版本"
                     style={{ width: '50%', marginRight: 8 }}
                   >
                     <Option value="Release">Release</Option>
@@ -798,7 +682,7 @@ class Device extends React.Component {
                     },
                     { min: 10, max: 256, message: '最少10位，最多256位!' }
                   ]
-                })(<Input />)}
+                })(<Input placeholder="请输入版本描述!" />)}
               </Form.Item>
               <Form.Item {...formItemLayout} label="发布的版本号">
                 {getFieldDecorator('version', {
@@ -808,13 +692,15 @@ class Device extends React.Component {
                       message: '请输入当前发布的版本号!'
                     }
                   ]
-                })(<Input type="number" />)}
+                })(
+                  <Input type="number" placeholder="请输入当前发布的版本号!" />
+                )}
               </Form.Item>
               <Form.Item {...formItemLayout} label="升级平台" hasFeedback>
                 {getFieldDecorator('filter_os_name', {
                   rules: [{ required: true, message: '请选择升级平台!' }]
                 })(
-                  <Select placeholder="Please select a platForm">
+                  <Select placeholder="请选择升级平台!">
                     <Option value="iOS">iOS</Option>
                     <Option value="Android">Android</Option>
                   </Select>
