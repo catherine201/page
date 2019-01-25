@@ -134,9 +134,9 @@ module.exports = {
       path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
   },
   externals: {
-    NProgress: 'NProgress',
-    react: "React",
-    "react-dom": "ReactDOM"
+    // NProgress: 'NProgress',
+    // react: "React",
+    // "react-dom": "ReactDOM"
   },
     //设置开发者工具的端口号,不设置则默认为8080端口
   // devServer: {

@@ -1,0 +1,101 @@
+.article_sider{
+  height: 100vh;
+  overflow: auto;
+  .back_home_btn{
+    width: 80%;
+    padding: 15px 0px;
+    text-align: center;
+    margin: 30px auto 18px auto;
+    border: 1px solid #ec7259;
+    border-radius: 20px;
+    color: #ec7259;
+    cursor: pointer;
+  }
+  .add_article{
+      .add_article_p{
+          color: #fff;
+          margin-bottom: 15px;
+          padding-left: 10px;
+          cursor: pointer;
+      }
+      .add_article_form{
+        width: 80%;
+        margin: 0 auto 25px auto;
+        height: 75px;
+        // opacity: 1;
+        overflow: hidden;
+        transition: height .2s;
+        .article_name_input{
+            height: 35px;
+            color: #ccc;
+            background-color: #595959;
+            border: 1px solid #333;
+            padding: 4px 6px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            line-height: 20px;
+          }
+        .add_article_confirm{
+            justify-content: flex-start;
+            margin-bottom: 10px;
+            .submit_btn{
+              text-align: center;
+              height: 30px;
+              line-height: 20px;
+              padding: 4px 12px;
+              color: #42c02e;
+              border:1px solid #42c02e;
+              border-radius: 15px;
+              margin-right: 15px;
+              cursor: pointer;
+            }
+            .cancel_word{
+              &:hover{
+                color: #666;
+              }
+            }
+        }
+      }
+      .add_article_form_hide{
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        margin: 0 auto;
+        transition: all .3s;
+      }
+  }
+  .menu_wrap{
+    .menu_item{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &.menu_item_active{
+        background-color: #1890ff;
+      }
+    }
+  }
+}
+  .Divider{
+    margin: 0;
+  }
+
+:global{
+  .ant-popover{
+    .ant-popover-inner-content{
+      padding: 0;
+    }
+    .popoverLi_item{
+      height: 40x;
+      line-height: 40px;
+      padding: 0 50px 0 25px;
+      cursor: pointer;
+      &:hover{
+        background-color: #666;
+        color: #fff;
+      }
+      .anticon{
+        margin-right: 10px;
+      }
+    }
+  }
+}

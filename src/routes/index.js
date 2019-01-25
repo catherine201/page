@@ -20,6 +20,22 @@ const router = new Router({
     { path: '/login', component: page('login') },
     { path: '/register', component: page('register') },
     {
+      path: '/article/notebooks',
+      component: page('article')
+    },
+    {
+      path: '/article/notebooks/:folder',
+      component: page('article')
+    },
+    {
+      path: '/article/notebooks/:folder/:notes',
+      component: page('article')
+    },
+    {
+      path: '/article/notebooks/:folder/:notes/:file',
+      component: page('article')
+    },
+    {
       path: '/admin',
       component: AppLayout,
       name: 'admin-view',
@@ -28,6 +44,7 @@ const router = new Router({
         { path: '/publish', component: page('admin') },
         { path: '/publish/:id', component: page('admin') },
         { path: '/query', component: page('main') },
+        { path: '/edit', component: page('article') },
         { name: 404, component: page('404') }
       ]
     },
@@ -43,11 +60,11 @@ const router = new Router({
 // });
 
 router.beforeEach = function(ctx, next) {
-  NProgress.start();
+  // NProgress.start();
   store.dispatch.demo.setCountLoading([]);
   next();
   setTimeout(() => {
-    NProgress.done();
+    // NProgress.done();
   }, 300);
 };
 export default router;

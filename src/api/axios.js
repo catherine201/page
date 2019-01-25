@@ -38,7 +38,7 @@ axios.interceptors.response.use(
   },
   error => {
     let errorMsg = '';
-    console.dir(error);
+    // console.dir(error);
     if (error.response) {
       errorMsg = error.response.data.message;
       if (error.response.status === 401) {
@@ -97,7 +97,7 @@ function createDom() {
   document.body.appendChild(containerDOM);
 }
 function getToken() {
-  console.log(sessionStorage.getItem('user'));
+  // console.log(sessionStorage.getItem('user'));
   return sessionStorage.getItem('user')
     ? JSON.parse(sessionStorage.getItem('user')).second_access_token
     : '';
@@ -134,8 +134,11 @@ export function fetchApi(url, options, data) {
     options.errorHandler = true;
   }
   const baseURL = options.baseUrl || serverIp.logic;
+  // /article/%id%/content   /%id%/
   const urlArr = url.split('%');
+  // console.log(urlArr);
   if (urlArr.length > 1) {
+    // console.log(data);
     const urlRes = urlArr.map((item, index) => {
       const dataCopy = JSON.parse(JSON.stringify(data));
       Object.keys(data).forEach(it => {
@@ -143,7 +146,7 @@ export function fetchApi(url, options, data) {
           delete data[item];
         }
       });
-      console.log(item);
+      // console.log(dataCopy);
       return index % 2 === 0 ? item : (item = dataCopy[item] || '');
     });
     url = urlRes.join('');
@@ -173,9 +176,10 @@ export function fetchApi(url, options, data) {
     data,
     params
   };
+  // console.log(ajaxObj);
   if (method === 'GET' || method === 'DELETE') {
     ajaxObj.data = null;
-  } else if (method === 'POST') {
+  } else {
     ajaxObj.params = null;
   }
   return new Promise((resolve, reject) => {

@@ -18,7 +18,7 @@ export default class Home extends React.Component {
           <img src={imgSrc} alt="logo" className="home_logo" />
         </div>
         <div style={{ margin: '20px 0' }}>
-          <h1>Leeker Labs 发版管理系统</h1>
+          <h1>Leeker Labs 发布文章系统</h1>
         </div>
         <div>
           <Button

@@ -2,17 +2,17 @@ const proxy = require('http-proxy-middleware');
 
 module.exports = function(app) {
   app.use(
-    proxy('/fangman', {
-      target: 'http://192.168.1.189:3030/',
+    proxy('/article', {
+      target: 'http://192.168.1.162:9010/',
       changeOrigin: true,
       pathRewrite: {
-        '^/fangman': ''
+        '^/article': ''
       }
     })
   );
   app.use(
     proxy('/log', {
-      target: 'http://192.168.1.96:51002/',
+      target: 'http://192.168.1.162:9000/',
       changeOrigin: true,
       pathRewrite: {
         '^/log': ''

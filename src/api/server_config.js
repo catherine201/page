@@ -4,7 +4,7 @@ function resolveIp() {
     return {
       login: '/log',
       thirdServer: '/third',
-      logic: '/fangman'
+      logic: '/article'
     };
   }
   return {

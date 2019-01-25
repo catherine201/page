@@ -97,3 +97,6 @@ html body .christmas.ant-btn-primary:before{
     height: 42px;
     line-height: 42px;
   }
+  .cursor{
+    cursor: pointer;
+  }
